@@ -3,7 +3,7 @@ import ExpenseCard from "./ExpenseCard";
 
 const Dashboard = () => {
   return (
-    <div className="flex flex-col justify-center gap-36">
+    <div className="flex flex-col justify-center gap-14">
       <ExpenseCard />
       <Chart />
     </div>

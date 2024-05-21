@@ -9,6 +9,9 @@ import {
   YAxis,
 } from "recharts";
 
+import { useState } from "react";
+import YearSelector from "./YearSelector";
+
 const data = [
   {
     name: "January",
@@ -105,29 +108,52 @@ const renderCustomizedLabel = (props) => {
 };
 
 const Chart = () => {
+  const [selectedYear, setSelectedYear] = useState(new Date().getFullYear());
+
+  const handleYearChange = (year) => {
+    setSelectedYear(year);
+  };
+
+  const filteredData = data.filter(
+    (entry) => new Date(entry.name).getFullYear() === selectedYear
+  );
+
   return (
     <>
-      <BarChart
-        width={1150}
-        height={350}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="debit" fill="#FF8E5E" minPointSize={10} />
-        <Bar dataKey="credit" fill="#52E30E" minPointSize={5}>
-          <LabelList dataKey="name" content={renderCustomizedLabel} />
-        </Bar>
-      </BarChart>
+      <div className="card w-[1200px] bg-gray-100 text-primary-content">
+        <div className="flex flex-col gap-4 card-body">
+          <div className="flex flex-row justify-between">
+            <h1 className="text-2xl font-bold text-gray-500">
+              Yearly Account Analysis
+            </h1>
+            <YearSelector
+              selectedYear={selectedYear}
+              onYearChange={handleYearChange}
+            />
+          </div>
+          <BarChart
+            width={1150}
+            height={350}
+            data={data}
+            margin={{
+              top: 5,
+              right: 30,
+              left: 20,
+              bottom: 5,
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Bar dataKey="debit" fill="#FF8E5E" minPointSize={10} />
+            <Bar dataKey="credit" fill="#52E30E" minPointSize={5}>
+              <LabelList dataKey="name" content={renderCustomizedLabel} />
+            </Bar>
+          </BarChart>
+        </div>
+      </div>
     </>
   );
 };
