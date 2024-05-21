@@ -1,6 +1,7 @@
 import { FaEdit } from "react-icons/fa";
 import { GoHome } from "react-icons/go";
 import { IoVideocamOutline } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -18,23 +19,23 @@ const Sidebar = () => {
         <li>
           <div className="flex items-center gap-2 p-3 cursor-pointer hover:bg-blue-200 hover:text-sky-500 hover:border-sky-500 hover:border-0 hover:border-s-8">
             <GoHome />
-            <a to="/dashboard" className="w-full">
+            <Link to="/dashboard" className="w-full">
               Dashboard
-            </a>
+            </Link>
           </div>
         </li>
 
         <li>
           <div className="flex items-center gap-2 p-3 cursor-pointer hover:bg-blue-200 hover:text-sky-500 hover:border-sky-500 hover:border-0 hover:border-s-8">
             <IoVideocamOutline />
-            <a to="/accounting">Accounting</a>
+            <Link to="/accounting">Accounting</Link>
           </div>
         </li>
 
         <li>
           <div className="flex items-center gap-2 p-3 cursor-pointer hover:bg-blue-200 hover:text-sky-500 hover:border-sky-500 hover:border-0 hover:border-s-8">
             <FaEdit />
-            <a to="/reports">Reports</a>
+            <Link to="/report">Reports</Link>
           </div>
         </li>
       </ul>

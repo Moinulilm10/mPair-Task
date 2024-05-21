@@ -1,22 +1,29 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 import Accounting from "./components/Accounting/Accounting";
-import NavBar from "./components/shared/Navbar";
-import Sidebar from "./components/shared/Sidebar";
+import Profile from "./components/Profile";
+import Report from "./components/Report/Report";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Dashboard from "./components/dashboard/Dashboard";
+import Layout from "./layout";
 
 const App = () => {
   return (
-    <div className="flex flex-col h-screen">
-      <NavBar />
-      <div className="flex flex-1">
-        <Sidebar />
-        <div className="flex-1 p-5">
-          {/* <Dashboard /> */}
-          <Accounting />
-          <h1>Profile</h1>
-          <h1>Register</h1>
-          <h1>Login</h1>
-        </div>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/accounting" element={<Accounting />} />
+          <Route path="/report" element={<Report />} />
+          <Route index element={<Profile />} />
+
+          <Route index element={<Login />} />
+
+          <Route path="/register" element={<Register />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 };
 
