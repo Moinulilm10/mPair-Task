@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import avatar from "../../assets/avatar.jpg";
 import logo from "../../assets/logo.png";
 
@@ -7,7 +8,9 @@ const NavBar = () => {
       <div style={{ background: "rgba(35, 151, 200, 1)" }}>
         <div className="px-10 navbar">
           <div className="flex-1">
-            <img src={logo} className="h-7"></img>
+            <Link to="/">
+              <img src={logo} className="h-7"></img>
+            </Link>
           </div>
           <div className="flex-none gap-2">
             <div>
@@ -29,7 +32,9 @@ const NavBar = () => {
                 className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
               >
                 <li>
-                  <a className="justify-between">Profile</a>
+                  <Link to="/profile" className="justify-between">
+                    Profile
+                  </Link>
                 </li>
                 <li>
                   <a>Settings</a>
