@@ -10,6 +10,10 @@ const NavBar = () => {
             <img src={logo} className="h-7"></img>
           </div>
           <div className="flex-none gap-2">
+            <div>
+              <h1 className="text-[#ffff] font-semibold">Aminul Islam</h1>
+              <p className="text-[#ffff] font-normal">Account Manager</p>
+            </div>
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
