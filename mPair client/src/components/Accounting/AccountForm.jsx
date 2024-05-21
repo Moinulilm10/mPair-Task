@@ -1,5 +1,5 @@
 const AccountForm = () => {
-  return <div>hello</div>;
+  return <div>AccountForm</div>;
 };
 
 export default AccountForm;
