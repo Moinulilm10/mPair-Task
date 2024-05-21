@@ -109,7 +109,7 @@ const Chart = () => {
     <>
       <BarChart
         width={1150}
-        height={300}
+        height={350}
         data={data}
         margin={{
           top: 5,
